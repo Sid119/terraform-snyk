@@ -6,11 +6,7 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-       working-directory: ./lecture_2
-    env:
-      TF_WORKSPACE: main
+
     steps:
       -
         name: Checkout
