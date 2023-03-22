@@ -19,7 +19,7 @@ jobs:
         name: Vulnerability scan of terraform configration file
         uses: snyk/actions/iac@master
         env:
-           SNYK_TOKEN: ${{secrets.SNYK_TOKEN}}
+           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args: --severity-threshold=low
             --sarif-file-output=terraform.snyk.scan
