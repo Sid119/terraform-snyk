@@ -12,17 +12,8 @@ jobs:
         name: Checkout
         uses: actions/checkout@v3
         
-      - name: Install Snyk CLI
-        run: |
-          curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-          sudo apt-get install -y nodejs
-          sudo npm install -g snyk
-
-      - name: Terraform Snyk Scan
-        run: snyk auth
-        env:
-           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-           
-      - name: snyk test
-        run : snyk test
+      - name: Vulnerability scan of terraform configration file 
+        uses: snyk/actions/iac@master 
+        env: 
+           SNYK_TOKEN: ${{secrets.SNYK_TOKEN}} 
       
