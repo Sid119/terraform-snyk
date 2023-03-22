@@ -19,7 +19,10 @@ jobs:
           sudo npm install -g snyk
 
       - name: Terraform Snyk Scan
-        run: snyk test
+        run: snyk auth
         env:
            SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+           
+      - name: snyk test
+        run : snyk test
       
